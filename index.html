@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="title">
+        <h1>Apakah Ariq tampan dan menarik?</h1>
+      </section>
+
+      <section class="button">
+        <a href="#" class="js-btn-yes">
+          <button>Ya</button>
+        </a>
+        <a href="#" class="js-btn-no">
+          <button>Tidak</button>
+        </a>
+      </section>
+
+      <section class="result_container js-result">
+        <div class="result-section">
+          <h1>Yaudah ini videonya</h1>
+          <!-- <video controls>
+            <source
+              src="https://drive.google.com/file/d/1U_08A7Sim0rP7U1oJUPHDVZKrT1BwOqE/preview"
+              type="video/mp4"
+            />
+          </video> -->
+          <!-- <iframe
+            src="https://drive.google.com/file/d/1U_08A7Sim0rP7U1oJUPHDVZKrT1BwOqE/view?usp=drive_link"
+            frameborder="0"
+            width="640"
+            height="480"
+            allowfullscreen
+          ></iframe> -->
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/IdzsLRXLXws?si=H9SuMno7b9eDgEYe"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <br />
+          <a href="index.html">
+            <button>Kembali</button>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      function randomPlusOrMinus() {
+        let value = Math.floor(Math.random() * 200 - 100 + 1) + 100;
+        console.log(value);
+        return Math.random() < 0.5 ? -value : value;
+      }
+
+      $(function () {
+        $(".js-btn-no").on("touch click mouseover mousedown", function () {
+          let $this = $(this);
+          let randomX = randomPlusOrMinus();
+          let randomY = randomPlusOrMinus();
+          $this.css({
+            transform: `translateX(${randomX}%) translateY(${randomY}%)`,
+          });
+        });
+      });
+      $(".js-btn-yes").on("click", function () {
+        $(".js-result").show();
+      });
+    </script>
+  </body>
+</html>
